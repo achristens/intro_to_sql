@@ -1,16 +1,43 @@
 Find all the robots from Star Wars.
-  SELECT * FROM robots WHERE source='Star Wars';
+  intro_to_sql=#   SELECT * FROM robots WHERE source='Star Wars';
+   name |  source   | personality | id
+  ------+-----------+-------------+----
+   C3PO | Star Wars | anxious     |  4
+   R2D2 | Star Wars | loyal       |  8
+  (2 rows)
 
 Find the robot with an "anxious" personality.
-  SELECT * FROM robots WHERE personality='anxious';
+  intro_to_sql=#   SELECT * FROM robots WHERE personality='anxious';
+   name |  source   | personality | id
+  ------+-----------+-------------+----
+   C3PO | Star Wars | anxious     |  4
+  (1 row)
 
 Find all recipes that are nut free.
   SELECT * FROM recipes WHERE nut_free = '1';
-  
+
 Count the number of recipes that are gluten free but not vegetarian.
-  SELECT * FROM recipes WHERE gluten_free = '1' AND vegetarian = '0';
+  intro_to_sql=# SELECT COUNT(gluten_free) FROM recipes WHERE vegetarian = '0';
+   count
+  -------
+       2
+  (1 row)
+
 
 Find the animal with the most legs.
+  intro_to_sql=# SELECT * FROM animals ORDER BY number_of_legs ASC;
+         name       | number_of_legs | flying | swimming | egg_laying | id
+  ------------------+----------------+--------+----------+------------+----
+   whale            |              0 | f      | t        | f          | 10
+   hammerhead shark |              0 | f      | t        | f          |  2
+   bat              |              2 | t      | f        | f          |  6
+   duck             |              2 | t      | t        | t          |  4
+   owl              |              2 | t      | f        | t          |  7
+   chicken          |              2 | f      | f        | t          |  9
+   cow              |              4 | f      | f        | f          |  8
+   sheep            |              4 | f      | f        | f          |  5
+   cat              |              4 | f      | f        | f          |  1
+   octopus          |              8 | f      | t        | t          |  3
 
 Find the board game that takes the least amount of time to play.
 
