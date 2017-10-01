@@ -25,25 +25,47 @@ Count the number of recipes that are gluten free but not vegetarian.
 
 
 Find the animal with the most legs.
-  intro_to_sql=# SELECT * FROM animals ORDER BY number_of_legs ASC;
+  intro_to_sql=# SELECT * FROM animals ORDER BY number_of_legs DESC;
          name       | number_of_legs | flying | swimming | egg_laying | id
   ------------------+----------------+--------+----------+------------+----
-   whale            |              0 | f      | t        | f          | 10
-   hammerhead shark |              0 | f      | t        | f          |  2
+   octopus          |              8 | f      | t        | t          |  3
+   sheep            |              4 | f      | f        | f          |  5
+   cat              |              4 | f      | f        | f          |  1
+   cow              |              4 | f      | f        | f          |  8
    bat              |              2 | t      | f        | f          |  6
    duck             |              2 | t      | t        | t          |  4
    owl              |              2 | t      | f        | t          |  7
    chicken          |              2 | f      | f        | t          |  9
-   cow              |              4 | f      | f        | f          |  8
-   sheep            |              4 | f      | f        | f          |  5
-   cat              |              4 | f      | f        | f          |  1
-   octopus          |              8 | f      | t        | t          |  3
+   whale            |              0 | f      | t        | f          | 10
+   hammerhead shark |              0 | f      | t        | f          |  2
 
 Find the board game that takes the least amount of time to play.
+  intro_to_sql=# SELECT * FROM board_games ORDER BY mins_to_play ASC;
+            name          | max_players | min_players |    category    | mins_to_play | id
+  ------------------------+-------------+-------------+----------------+--------------+----
+   Sushi Go               |           5 |           2 | party          |           15 | 10
+   Quixo                  |           4 |           2 | abstract       |           15 | 11
+   Quarto                 |           2 |           2 | abstract       |           20 |  4
+   Cards Against Humanity |          30 |           5 | party          |           30 |  8
+   7 Wonders              |           7 |           2 | strategy       |           30 |  5
+   7 Wonders              |           7 |           2 | strategy       |           30 | 12
+   Dixit                  |           6 |           3 | party          |           30 |  2
+   Bohnanza               |           7 |           2 | light strategy |           45 |  7
+   Carcassonne            |           5 |           2 | light strategy |           45 |  3
+   Game of Things         |          15 |           2 | party          |           45 |  9
+   Agricola               |           5 |           1 | strategy       |          120 |  6
+   Arkham Horror          |           8 |           1 | strategy       |          240 |  1
 
 Find the recipe that takes the most time to prepare.
+  SELECT * FROM recipes ORDER BY minutes_required DESC;
 
 Find all the robots whose name starts with the letter M.
+  intro_to_sql=# SELECT * FROM robots WHERE name LIKE 'M%';
+        name      |                source                |  personality  | id
+  ----------------+--------------------------------------+---------------+----
+   Marvin         | The Hitchhiker's Guide to the Galaxy | pessimistic   |  3
+   Mr. Butlertron | Clone High                           | compassionate |  5
+  (2 rows)
 
 Count the number of board games that can be played by 8 people.
 
